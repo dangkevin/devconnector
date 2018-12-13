@@ -5,6 +5,10 @@ const app = express();
 //DB Config
 const db = require("./config/keys").mongoURI;
 
+const users = require("./routes/api/users");
+const profile = require("./routes/api/profile");
+const posts = require("./routes/api/posts");
+
 //Connect to MongoDB
 mongoose
   .connect(db)
