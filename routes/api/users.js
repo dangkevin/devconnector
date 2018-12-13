@@ -1,5 +1,7 @@
 const express = require("express");
 
 const router = express.Router();
+/*Public route */
+router.get("/test", (req, res) => res.json({ msg: "User works" }));
 
-router.get("/test", (res, req) => res.json());
+module.exports = router;
