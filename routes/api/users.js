@@ -3,6 +3,7 @@ const gravatar = require("gravatar");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const keys = require("../../config/keys");
+const passport = require("passport");
 /* Creates a router as a module, loads a middleware 
     function in it, defines some routes, and mounts the
      router module on a path in the main app. */
@@ -29,12 +30,14 @@ router.post("/register", (req, res) => {
     post request*/
   const { errors, isValid } = validateRegisterInput(req.body);
 
+  //Check validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
   User.findOne({ email: req.body.email }).then(user => {
     if (user) {
+      errors.email = 'Email already exists';
       return res.status(400).json({ email: "Email already exists" });
     } else {
       const avatar = gravatar.url(req.body.email, {
@@ -86,7 +89,7 @@ router.post("/login", (req, res) => {
         const payload = { id: user.id, name: user.name, avatar: user.avatar };
         jwt.sign(
           payload,
-          keys.secretorKey,
+          keys.secretOrKey,
           { expiresIn: 3600 },
           (err, token) => {
             res.json({
