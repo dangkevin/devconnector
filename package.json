@@ -4,8 +4,11 @@
   "description": "Social Network for Devs",
   "main": "server.js",
   "scripts": {
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,7 @@
     "body-parser": "^1.18.3",
     "create-react-app": "^2.1.2",
     "express": "^4.16.4",
+    "g": "^2.0.1",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.16",
@@ -30,6 +34,8 @@
     "validator": "^10.9.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.8"
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.8",
+    "ws": "3.3.2"
   }
 }
