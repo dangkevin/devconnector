@@ -12,8 +12,8 @@ export const registerUser = (userData, history) => dispatch => {
                 dispatch({
                     type:GET_ERRORS,
                     payload: err.response.data
-                })
-            );
+        })
+    );
 };
 
 
@@ -35,7 +35,8 @@ export const loginUser = userData => dispatch => {
         dispatch({
         type:GET_ERRORS,
         payload: err.response.data
-    }));
+        })
+    );
 };
 
 //Set logged in user
@@ -44,8 +45,8 @@ export const setCurrentUser = (decoded) => {
     return{
         type: SET_CURRENT_USER,
         payload: decoded
-    }
-}
+    };
+};
 
 export const logoutUser = () => dispatch => {
     //remove token from local storage

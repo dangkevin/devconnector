@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {Provider} from 'react-redux';
-import { setCurrentUser } from './actions/authActions';
-import { logoutUser } from './actions/authActions';
+
+import { setCurrentUser, logoutUser } from './actions/authActions';
+import { clearCurrentProfile } from './actions/profileActions';
+
+import PrivateRoute from './components/common/PrivateRoute';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from './components/layout/Landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login';
+import Dashboard from './components/dashboard/Dashboard';
+import CreateProfile from './components/create-profile/CreateProfile';
+
+
 import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './util/setAuthToken';
 import './App.css';
-import './components/layout/Navbar'; 
 
 
 //Check for token
@@ -31,6 +37,9 @@ if(localStorage.jwtToken){
     store.dispatch(logoutUser());
     //TODO: Clear current profile
     // Redirect to login
+
+    store.dispatch(clearCurrentProfile());
+
     window.location.href = '/login'; 
   }
 }
@@ -46,6 +55,12 @@ class App extends Component {
           <div className = "container">
             <Route exact path = "/Login" component = {Login} />
             <Route exact path = "/Register" component = {Register} />
+            <Switch>
+              <PrivateRoute exact path = "/dashboard" component = {Dashboard} />
+            </Switch>
+            <Switch>
+            <PrivateRoute exact path = "/create-profile" component = {CreateProfile} />
+          </Switch>
           </div>
           <Footer/>     
         </div>
