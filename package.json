@@ -1,44 +1,32 @@
 {
   "name": "devconnector",
   "version": "1.0.0",
-  "description": "Social Network for Devs",
+  "description": "Social network for developers",
   "main": "server.js",
   "scripts": {
     "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dangkevin/devconnector.git"
-  },
-  "author": "Kevin Dang",
+  "author": "Brad Traversy",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/dangkevin/devconnector/issues"
-  },
-  "homepage": "https://github.com/dangkevin/devconnector#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "create-react-app": "^2.1.2",
-    "express": "^4.16.4",
-    "g": "^2.0.1",
-    "gravatar": "^1.8.0",
-    "jsonwebtoken": "^8.4.0",
-    "jwt-decode": "^2.2.0",
-    "moment": "^2.24.0",
-    "mongoose": "^5.3.16",
+    "body-parser": "^1.18.2",
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.2.0",
+    "mongoose": "^5.0.12",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "react-moment": "^0.8.4",
-    "validator": "^10.9.0"
+    "validator": "^9.4.1"
   },
   "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.8",
-    "ws": "3.3.2"
+    "nodemon": "^1.17.3"
   }
 }
