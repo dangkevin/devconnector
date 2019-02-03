@@ -9,7 +9,16 @@ Users signed up can also create posts, like/dislike and comment on other posts. 
 [Demo here](https://afternoon-brook-96545.herokuapp.com/)
 
 
-<h1> Technology used </h1>
+
+
+
+
+
+
+
+
+
+<h2> Technology used </h2>
 
 <h3> Client Side </h3>
 React.js <br>
