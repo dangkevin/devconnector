@@ -11,15 +11,15 @@ Users signed up can also create posts, like/dislike and comment on other posts. 
 
 <h1> Technology used </h1>
 
-<h2> Client Side </h2>
-React.js
-Bootstrap 4
+<h3> Client Side </h3>
+React.js <br>
+Bootstrap 4 <br>
 
-<h2> Server Side </h2>
-MongoDB (MLab)
-Node.js / Express
-Json Web Tokens
-Passport
-Passport-JWT
+<h3> Server Side </h3>
+MongoDB (MLab) <br>
+Node.js / Express <br>
+Json Web Tokens <br>
+Passport <br>
+Passport-JWT <br>
 
 
